@@ -43,9 +43,9 @@ elements = ["вода", "огонь", "воздух", "земля"]
 
 moves = 0
 
-print("Добро пожаловать в игру 'Алхимик'!")
-print("Ваша цель: создать элемент —", goal)
-print("Доступные элементы:", ", ".join(elements))
+print("✨Добро пожаловать в игру 'Алхимик'!")
+print("🎯Ваша цель: создать элемент —", goal)
+print("📦Доступные элементы:", ", ".join(elements))
 print()
 print("Команды:")
 print("/help - список команд")
@@ -73,18 +73,18 @@ def save_game():
     with open("save.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    print("Игра сохранена")
+    print("💾Игра сохранена")
 
 while True:
     user_input = input("Смешать: ").lower().strip()
 
     if user_input == "стоп":
-        print("Вы вышли из игры.")
+        print("👋Вы вышли из игры.")
         break
 
     if user_input == "/help":
         print()
-        print("Команды:")
+        print("📖Команды:")
         print("/help - список команд")
         print("/hint - подсказка")
         print("/stats - статистика")
@@ -102,7 +102,7 @@ while True:
 
     if user_input == "/stats":
         print()
-        print("Статистика")
+        print("📊Статистика")
         print("Ходов сделано", moves)
         print("Открыто элементов:", len(elements))
         print()
@@ -123,10 +123,10 @@ while True:
 
     # Проверяем, есть ли элементы у игрока
     if a not in elements:
-        print("У вас нет элемента:", a)
+        print("❌У вас нет элемента:", a)
         continue
     if b not in elements:
-        print("У вас нет элемента:", b)
+        print("❌У вас нет элемента:", b)
         continue
 
     # Ищем рецепт
@@ -137,21 +137,21 @@ while True:
             break
 
     if result is None:
-        print("Ничего не получилось.")
+        print("🍃Ничего не получилось.")
         continue
 
-    print("Получилось:", result)
+    print("✨Получилось:", result)
 
     # Добавляем новый элемент, если его ещё нет
     if result not in elements:
         elements.append(result)
-        print("Новый элемент добавлен в доступные!")
+        print("🆕Новый элемент добавлен в доступные!")
 
     # Проверяем победу
     if result == goal:
-        print("\nПоздравляем! Вы создали целевой элемент:", goal)
-        print("Игра окончена.")
+        print("\n🏆Поздравляем! Вы создали целевой элемент:", goal)
+        print("🎉Игра окончена.")
         break
 
-    print("Доступные элементы:", ", ".join(elements))
+    print("📦Доступные элементы:", ", ".join(elements))
     print()
