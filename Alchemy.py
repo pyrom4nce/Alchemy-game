@@ -1,4 +1,5 @@
 import random
+import json
 
 # --- Список всех рецептов (кортежи) ---
 recipes = [
@@ -53,6 +54,17 @@ def get_hint():
                 return f"Попробуйте соединить: {r1} + {r2}"
     return "Подсказок пока нет."
 
+def save_game():
+    data = {
+        "elements": elements,
+        "goal": goal
+    }
+
+    with open("save.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+    print("Игра сохранена")
+
 while True:
     user_input = input("Смешать: ").lower().strip()
 
@@ -62,6 +74,11 @@ while True:
 
     if user_input == "/hint":
         print("💡", get_hint())
+        print()
+        continue
+
+    if user_input == "/save":
+        save_game()
         print()
         continue
 
