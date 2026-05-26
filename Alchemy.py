@@ -46,7 +46,15 @@ moves = 0
 print("Добро пожаловать в игру 'Алхимик'!")
 print("Ваша цель: создать элемент —", goal)
 print("Доступные элементы:", ", ".join(elements))
-print("Введите два элемента через пробел. Для выхода напишите 'стоп'.")
+print()
+print("Команды:")
+print("/help - список команд")
+print("/hint - подсказка")
+print("/stats - статистика")
+print("/save - сохранить прогресс")
+print("стоп - выход")
+print()
+print("Введите два элемента через пробел")
 print()
 
 def get_hint():
@@ -73,6 +81,19 @@ while True:
     if user_input == "стоп":
         print("Вы вышли из игры.")
         break
+
+    if user_input == "/help":
+        print()
+        print("Команды:")
+        print("/help - список команд")
+        print("/hint - подсказка")
+        print("/stats - статистика")
+        print("/save - сохранить прогресс")
+        print("стоп - выход")
+        print()
+        print("Введите два элемента через пробел")
+        print()
+        continue
 
     if user_input == "/hint":
         print("💡", get_hint())
