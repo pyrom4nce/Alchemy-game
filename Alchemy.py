@@ -46,12 +46,24 @@ print("Доступные элементы:", ", ".join(elements))
 print("Введите два элемента через пробел. Для выхода напишите 'стоп'.")
 print()
 
+def get_hint():
+    for r1, r2, result in recipes:
+        if recipes == goal:
+            if r1 in elements and r2 in elements:
+                return f"Попробуйте соединить: {r1} + {r2}"
+    return "Подсказок пока нет."
+
 while True:
     user_input = input("Смешать: ").lower().strip()
 
     if user_input == "стоп":
         print("Вы вышли из игры.")
         break
+
+    if user_input == "/hint":
+        print("💡", get_hint())
+        print()
+        continue
 
     parts = user_input.split()
 
