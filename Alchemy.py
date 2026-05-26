@@ -41,6 +41,8 @@ goal = random.choice(targets)
 # --- Стартовый набор элементов ---
 elements = ["вода", "огонь", "воздух", "земля"]
 
+moves = 0
+
 print("Добро пожаловать в игру 'Алхимик'!")
 print("Ваша цель: создать элемент —", goal)
 print("Доступные элементы:", ", ".join(elements))
@@ -74,6 +76,14 @@ while True:
 
     if user_input == "/hint":
         print("💡", get_hint())
+        print()
+        continue
+
+    if user_input == "/stats":
+        print()
+        print("Статистика")
+        print("Ходов сделано", moves)
+        print("Открыто элементов:", len(elements))
         print()
         continue
 
